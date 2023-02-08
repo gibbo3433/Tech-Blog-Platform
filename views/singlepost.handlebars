@@ -1,0 +1,31 @@
+
+<div class="card-container">
+    <div class="card margin">
+            <p class="blog-title"><a href="{{post.id}}">{{post.post_title}}</a></p>
+            <p>{{format_date post.date_created}}</p>
+            <p class="posted-by">Posted by {{post.user.name}}</p>
+
+
+            <p>{{post.post_content}}</p>        
+                
+
+            {{#if logged_in}}
+            <div class="comment-section" id="comment-section">
+                        <div>
+                            <input  class="create-comment" type="text" placeholder="Create your own comment" />
+                            <button type="submit" class="new-comment-form">Create</button>     
+                        </div>
+                
+
+                        <div class="loaded-comments-container">
+                           
+                                {{#each post.comments as |comment|}}
+                                    <p class="loaded-comments">{{comment.user.name}}: {{comment.text}}</p>
+                                {{/each}}
+                        </div>
+                        {{/if}}
+            </div>
+
+    </div>
+</div>
+<script src="../js/comment.js" ></script>

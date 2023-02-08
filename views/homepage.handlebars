@@ -1,0 +1,30 @@
+<div class="title">
+         <img id="logo" src = "./images/logo.png"> 
+
+        <p class="mono-font"><span class="logo-dark">O R A</span> C O D E</p>
+        <p class="monospace">For all your coding needs</p>
+            {{#if logged_in}}
+
+                {{else}}
+                <p class="monospace spacing">Please log in to comment!</p>
+
+                {{/if}}
+</div>
+
+            <div class="card-container">
+            
+                {{#each posts as |post|}}
+                {{> post-item}} 
+                 {{/each}}
+              </div>
+
+<script type="text/javascript" src="../js/index.js"></script>
+
+{{#if logged_in}}
+<script src="../js/comment.js"></script>
+
+{{/if}}
+
+
+     
+
