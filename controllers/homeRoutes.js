@@ -19,12 +19,18 @@ router.get("/", async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    // This makes the client side see specifically what posts the current logged in user owns
+    const posts = postData.map((post) => {
+      const plainPost = post.get({ plain: true });
+      plainPost.isOwner = req.session.user_id === plainPost.user_id;
+      return plainPost;
+    });
+        console.log(posts);
 
     res.render("homepage", {
       posts,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      isOwner: req.session.user_id === posts.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -54,6 +60,7 @@ router.get("/post/:id", async (req, res) => {
      
       post,
       logged_in: req.session.logged_in,
+      isOwner: req.session.user_id === post.user_id,
       
     });
     console.log(post,"this is after the render");
