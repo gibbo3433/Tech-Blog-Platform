@@ -6,7 +6,13 @@
             <p class="posted-by">Posted by {{post.user.name}}</p>
 
 
-            <p>{{post.post_content}}</p>        
+            <p>{{post.post_content}}</p>       
+
+             <div>
+        {{#if isOwner}}
+        <button type="button" id="edit-post-btn" data-id="{{post.id}}">Edit Post</span>
+        {{/if}}
+    </div> 
                 
 
             {{#if logged_in}}
@@ -29,3 +35,4 @@
     </div>
 </div>
 <script src="../js/comment.js" ></script>
+<script type="text/javascript" src="../js/index.js"></script>

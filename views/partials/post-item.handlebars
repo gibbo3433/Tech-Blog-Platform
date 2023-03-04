@@ -10,6 +10,11 @@
       
     </div>
 
+    <div>
+        {{#if isOwner}}
+        <button type="button" id="edit-post-btn" data-id="{{id}}">Edit Post</span>
+        {{/if}}
+    </div>
     
     <div class="comment-section" id="comment-section">
         <div>
