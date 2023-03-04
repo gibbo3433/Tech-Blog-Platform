@@ -31,7 +31,6 @@ const updateFormHandler = async (event) => {
 const deletePost = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const postId = event.target.getAttribute("data-id");
-    console.log(postId)
     const response = await fetch(`/api/posts/${postId}`, {
       method: "DELETE",
       body: JSON.stringify({
@@ -47,7 +46,6 @@ const deletePost = async (event) => {
       document.location.href = "/";
     } else {
       // console log an error message
-      console.log(response.statusText);
     }
   }
 };

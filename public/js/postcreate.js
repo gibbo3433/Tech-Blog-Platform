@@ -3,7 +3,6 @@ const newPostHandler = async (event) => {
   
     const post_title = document.querySelector('#post-name').value.trim();
     const post_content = document.querySelector('#post-desc').value.trim();
-    console.log(post_title, post_content)
 
     if (post_title && post_content) {
       const response = await fetch("/api/posts", {

@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
       plainPost.isOwner = req.session.user_id === plainPost.user_id;
       return plainPost;
     });
-        console.log(posts);
+
 
     res.render("homepage", {
       posts,
@@ -53,7 +53,6 @@ router.get("/post/:id", async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
-    console.log(post,"this is before the render");
 
     res.render("singlepost", {
      
@@ -62,7 +61,6 @@ router.get("/post/:id", async (req, res) => {
       isOwner: req.session.user_id === post.user_id,
       
     });
-    console.log(post,"this is after the render");
   } catch (err) {
     res.status(500).json(err);
   } 
@@ -85,7 +83,6 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/profile', withAuth, async (req, res) => {
-  console.log("yo")
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
@@ -97,7 +94,6 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(user)
 
     res.render('profile', {
       ...user,
