@@ -24,4 +24,27 @@ const updateFormHandler = async (event) => {
   };
 }
 
+  // Delete a post
+  const deletePost = async (event) => {
+    if (event.target.hasAttribute("data-id")) {
+      const postId = event.target.getAttribute("data-id");
+      const response = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
+        body: JSON.stringify({
+          id: postId,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.ok) {
+        // redirect to dashboard
+        document.location.href = "/";
+    }
+  };
+}
+
+
+  document.querySelector("#delete-btn").addEventListener("click", deletePost);  
   document.querySelector("#update-post").addEventListener("click", updateFormHandler);
