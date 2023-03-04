@@ -38,6 +38,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+// route to update a post
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const updatePost = {
