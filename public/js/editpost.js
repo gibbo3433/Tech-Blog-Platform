@@ -19,7 +19,7 @@ const updateFormHandler = async (event) => {
   
       if (response.ok) {
         // replace url
-        document.location.replace("/dashboard");
+        document.location.replace("/profile");
     }
   };
 }
@@ -39,7 +39,6 @@ const updateFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        // redirect to dashboard
         document.location.href = "/";
     }
   };
