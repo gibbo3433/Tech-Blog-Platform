@@ -18,8 +18,7 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
-    // This makes the client side see specifically what posts the current logged in user owns
+    // The template can now read the data
     const posts = postData.map((post) => {
       const plainPost = post.get({ plain: true });
       plainPost.isOwner = req.session.user_id === plainPost.user_id;
