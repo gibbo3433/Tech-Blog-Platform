@@ -7,8 +7,7 @@ let commentsVisible = false;
 function showHideComments(e) {
 
     const postID = e.target.id;
-    // console.log(postID)
-
+    
     if(commentsVisible) {
         commentSection[postID -1].style.display = "none";
         e.target.textContent = "View Comments";
