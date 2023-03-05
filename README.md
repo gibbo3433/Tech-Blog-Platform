@@ -59,7 +59,7 @@ I have added commenting to help any future edits by making it easier to see what
 
 ## Screenshot
 
-![tech-blog-002 herokuapp com_](https://user-images.githubusercontent.com/113479774/222991472-83ae2dbe-a149-4e08-a45b-4bfeebda7d0c.png)
+![tech-blog-002 herokuapp com_ (1)](https://user-images.githubusercontent.com/113479774/222993244-81426b95-3a9d-4c37-bc52-870ab1207655.png)
 
 ## Link to deployed application
 
