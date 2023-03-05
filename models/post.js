@@ -3,6 +3,8 @@ const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
+// this is the model for the posts
+
 Post.init(
   {
     id: {
@@ -22,7 +24,6 @@ Post.init(
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
-      // this needs to be changed day.js, mentioned by jason
       defaultValue: DataTypes.NOW,
     },
     user_id: {

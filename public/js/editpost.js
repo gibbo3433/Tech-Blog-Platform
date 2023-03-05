@@ -1,9 +1,8 @@
-//front end request to edit a post 
+// this will edit a post
 const updateFormHandler = async (event) => {
   event.preventDefault();
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-    // Grab title and post content
     const postContent = document.querySelector(".post-content").value.trim();
     const titletUpdate = document.querySelector(".post-title").value.trim();
 
@@ -19,15 +18,13 @@ const updateFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // replace url
       document.location.replace("/profile");
     } else {
-      // console log an error message
     }
   }
 };
 
-// Delete a post
+// this will delete a post
 const deletePost = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const postId = event.target.getAttribute("data-id");
@@ -42,14 +39,11 @@ const deletePost = async (event) => {
     });
 
     if (response.ok) {
-      // redirect to dashboard
       document.location.href = "/";
     } else {
-      // console log an error message
     }
   }
 };
 
 document.querySelector("#delete-btn").addEventListener("click", deletePost);
-
 document.querySelector("#update-post").addEventListener("click", updateFormHandler);

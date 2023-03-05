@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
+// This is the model for the comments
 Comment.init(
   {
     id: {
@@ -26,7 +27,6 @@ Comment.init(
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
-      // this needs to be changed day.js, mentioned by jason
       defaultValue: DataTypes.NOW,
     },
     post_id: {

@@ -1,8 +1,8 @@
 const User = require('./user');
 const Comments = require('./comments');
 const Post = require('./post');
-//const Upvotes = require('./Upvotes');
 
+// this connects all of the models together
 
 User.hasMany(Post, {
   foreignKey: 'user_id',

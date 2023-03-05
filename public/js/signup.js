@@ -1,3 +1,4 @@
+// This will allow for the user to sign-up
 const signupFormHandler = async (event) => {
     event.preventDefault();
   

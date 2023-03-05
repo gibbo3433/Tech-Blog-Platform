@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Post, User, Comments } = require("../models");
 const withAuth = require('../utils/auth');
 
+// route to find all of the posts
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -18,7 +19,6 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    // The template can now read the data
     const posts = postData.map((post) => {
       const plainPost = post.get({ plain: true });
       plainPost.isOwner = req.session.user_id === plainPost.user_id;
@@ -36,6 +36,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// route to find a specific post
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -82,6 +83,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// route to find a specific profile if the user is logged in
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -105,7 +107,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-//edit post route 
+// route to find the edit post page
 router.get("/post/:id/edit", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {

@@ -3,6 +3,8 @@ const viewCommentBtns = document.querySelectorAll(".view-comment-btn");
 const editButton = document.querySelectorAll("#edit-post-btn")
 let commentsVisible = false;
 
+
+// this will show the comments when the button is clicked
 function showHideComments(e) {
 
     const postID = e.target.id;
@@ -17,10 +19,12 @@ function showHideComments(e) {
         commentsVisible = true;
     }}
 
+
 viewCommentBtns.forEach(function(button) {
     button.addEventListener("click", showHideComments);
 });
 
+// this will add an event listener to each edit button
 editButton.forEach(function(button){
     button.addEventListener("click", function() {
         const postID = this.dataset.id;
